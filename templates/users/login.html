@@ -1,0 +1,60 @@
+{% extends "./base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+<header>
+    <a href="{{url_for('signup_page')}}" class="btn btn-outline">Register</a>
+    <a href="{{url_for('home_page')}}" class="btn btn-solid">Home</a>
+</header>
+
+    
+{% include "Includes/flash.html" %}
+
+    <main class="card-container slideUp-animation">
+
+        <div class="image-container">
+            <h1 style="color: #fff;"  class="company">Customer Lifetime Value <sup>&trade;</sup></h1>
+            <img src="{{ url_for('static', filename='images/signUp.svg') }}" class="illustration" alt="">
+            <p class="quote">Designed by Team NextWave</p>
+            <a href="#btm" class="mobile-btm-nav">
+                <img src="{{ url_for('static', filename='images/dbl-arrow.png') }}" alt="">
+            </a>
+        </div>
+        <form action="{{url_for('login_page')}}" method="post">
+            <div class="form-container slideRight-animation">
+    
+                <h1 class="form-header">
+                    Get started
+                </h1>
+    
+                <div class="input-container">
+                    <label for="mail">
+                    </label>
+                    <input type="email" name="mail" id="mail" required>
+                    <span>
+                        E-mail
+                    </span>
+                    <div class="error"></div>
+                </div>
+    
+                <div class="input-container">
+                    <label for="user-password"></label>
+                    <input type="password" name="user-password" id="user-password" class="user-password" required>
+                    <span>Password</span>
+                    <div class="error"></div>
+                </div>
+
+                <div id="btm">
+                    <button type="submit" class="submit-btn">LogIn</button>
+                    <p class="btm-text">
+                       Don't have an account..? <a href="{{url_for('signup_page')}}"><span class="btm-text-highlighted">  Sign Up</span></a>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    {% include "Includes/footer.html" %}
+   
+{% endblock %}
